@@ -1,7 +1,8 @@
 vim.wo.number = true
 vim.wo.relativenumber = true
-
-vim.cmd([["vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>]])
+vim.opt["tabstop"] = 4
+vim.opt["shiftwidth"] = 4
+vim.cmd([[vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>]])
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -17,7 +18,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {"rose-pine/neovim", name = "rose-pine"}	
+  {"rose-pine/neovim", name = "rose-pine"},
+  {"MortenStabenau/matlab-vim"}	
 })
 
 vim.cmd("colorscheme rose-pine")
