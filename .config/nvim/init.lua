@@ -4,6 +4,9 @@ vim.opt["tabstop"] = 4
 vim.opt["shiftwidth"] = 4
 vim.cmd([[vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>]])
 
+vim.g.mapleader = ';'
+vim.g.maplocalleader = ';'
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -18,14 +21,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {"rose-pine/neovim", name = "rose-pine"},
+  {"sainnhe/sonokai", name = "sonokai"},
   {"MortenStabenau/matlab-vim"},
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
   {"nvim-telescope/telescope.nvim", tag = "0.1.6", dependencies = {"nvim-lua/plenary.nvim"}},
   {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
 })
 
- vim.cmd("colorscheme rose-pine")
+ vim.cmd("colorscheme sonokai")
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = {"c", "lua", "vim", "vimdoc", "query", "matlab", "python"},
